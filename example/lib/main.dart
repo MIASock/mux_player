@@ -6,7 +6,9 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
 
   // This widget is the root of your application.
   @override
@@ -22,7 +24,7 @@ class MyApp extends StatelessWidget {
 }
 
 class VideoScreen extends StatelessWidget {
-  const VideoScreen({super.key});
+  const VideoScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

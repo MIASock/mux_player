@@ -14,8 +14,8 @@ class Html5Player extends StatefulWidget {
     this.muted = true,
     this.crossOrigin = 'anonymous',
     this.startTime,
-    super.key,
-  });
+    Key? key,
+  }) : super(key: key);
 
   ///
   /// `playbackId` is  video play back id from mux.

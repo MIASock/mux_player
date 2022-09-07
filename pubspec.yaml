@@ -1,10 +1,10 @@
 name: mux_player
-description: A new Flutter package project.
+description: Mux video player plugin for flutter
 version: 0.0.1
-homepage:
+homepage: https://github.com/abakgarum/mux_player
 
 environment:
-  sdk: '>=2.18.0-256.0.dev <3.0.0'
+  sdk: ">=2.15.1 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -15,24 +15,16 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^1.0.0
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
 flutter:
-  # plugin:
-  #   platforms:
-  #     android:
-  #       # package: mux_player
-  #       pluginClass: Html5Player
-  #     ios:
-  #       pluginClass: Html5Player
-  #     macos:
-  #       pluginClass: Html5Player
-  #     web:
-  #       pluginClass: Html5Player
+  uses-material-design: true
+
 
   # To add assets to your package, add an assets section, like this:
   # assets:
