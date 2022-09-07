@@ -2,7 +2,61 @@ import 'package:flutter/material.dart';
 import 'package:webviewx/webviewx.dart';
 
 class Html5Player extends StatefulWidget {
-  const Html5Player({super.key});
+  const Html5Player({
+    this.height = double.maxFinite,
+    this.width = double.maxFinite,
+    required this.playbackId,
+    this.streamType,
+    this.videoTitle,
+    this.viewerUserId,
+    this.primaryColor = 'burlywood',
+    this.secondaryColor = '#383838',
+    this.muted = true,
+    this.crossOrigin = 'anonymous',
+    this.startTime,
+    super.key,
+  });
+
+  ///
+  /// `playbackId` is  video play back id from mux.
+  ///
+  final String playbackId;
+
+  ///
+  ///
+  ///
+  final String? streamType;
+
+  ///
+  ///
+  final String? videoTitle;
+
+  ///
+  ///
+  ///
+  final String? viewerUserId;
+
+  ///
+  ///
+  final String? primaryColor;
+
+  ///
+  final String? secondaryColor;
+
+  ///
+  final bool? muted;
+
+  ///
+  final String? crossOrigin;
+
+  ///
+  final double? startTime;
+
+  ///
+  final double height;
+
+  ///
+  final double width;
 
   @override
   State<Html5Player> createState() => _Html5PlayerState();
@@ -10,7 +64,12 @@ class Html5Player extends StatefulWidget {
 
 class _Html5PlayerState extends State<Html5Player> {
   late WebViewXController webviewController;
-  String initialHtmlSource = ''' 
+
+  late Widget body;
+
+  @override
+  void initState() {
+    String initialHtmlSource = ''' 
   <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,30 +83,25 @@ class _Html5PlayerState extends State<Html5Player> {
     <script src="https://unpkg.com/@mux/mux-player"></script>
     
     <mux-player style="height: 100vh;width: 100vw"
-      stream-type="on-demand"
-      playback-id="EcHgOK9coz5K4rjSwOkoE7Y7O01201YMIC200RI6lNxnhs"
-      metadata-video-title="Test On Demand"
-      metadata-viewer-user-id="user-id-007"
-      primary-color="burlywood"
-      secondary-color="#383838"
-      muted="true"
-      crossOrigin="anonymous"
+      stream-type= ${widget.streamType}
+      playback-id= ${widget.playbackId}
+      metadata-video-title=${widget.videoTitle}
+      metadata-viewer-user-id= ${widget.viewerUserId}
+      primary-color= ${widget.primaryColor}
+      secondary-color=${widget.secondaryColor}
+      muted=${widget.muted}
+      crossOrigin=${widget.crossOrigin}
       forward-seek-offset="15"
       backward-seek-offset="15"
-      start-time="30"
+      start-time=${widget.startTime}
     ></mux-player>
 
   </body>
 </html>
   ''';
-
-  late Widget body;
-
-  @override
-  void initState() {
     body = WebViewX(
-      height: double.maxFinite,
-      width: double.maxFinite,
+      height: widget.height,
+      width: widget.width,
       initialContent: initialHtmlSource,
       initialSourceType: SourceType.html,
       onWebViewCreated: (controller) => webviewController = controller,
@@ -57,8 +111,6 @@ class _Html5PlayerState extends State<Html5Player> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: body,
-    );
+    return body;
   }
 }

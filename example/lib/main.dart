@@ -26,8 +26,10 @@ class VideoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Html5Player(),
+    return const Scaffold(
+      body: Html5Player(
+        playbackId: 'EcHgOK9coz5K4rjSwOkoE7Y7O01201YMIC200RI6lNxnhs',
+      ),
     );
   }
 }

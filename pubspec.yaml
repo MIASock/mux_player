@@ -22,6 +22,17 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  # plugin:
+  #   platforms:
+  #     android:
+  #       # package: mux_player
+  #       pluginClass: Html5Player
+  #     ios:
+  #       pluginClass: Html5Player
+  #     macos:
+  #       pluginClass: Html5Player
+  #     web:
+  #       pluginClass: Html5Player
 
   # To add assets to your package, add an assets section, like this:
   # assets:
